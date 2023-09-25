@@ -1,0 +1,23 @@
+#pragma code_page(65001)
+
+1 VERSIONINFO
+FILEVERSION     0,0,1,0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "NexerqDev"
+            VALUE "FileDescription", "Simple SDVX Konasute Launcher"
+            VALUE "LegalCopyright", "Copyright © NexerqDev 2023. BSD 2-Clause"
+            VALUE "OriginalFilename", "ortlinde"
+            VALUE "ProductName", "Ortlinde"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+            VALUE "Translation", 0x0809, 1200
+    END
+END
+
+1 ICON "ortlinde.ico"

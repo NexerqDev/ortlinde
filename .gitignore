@@ -20,3 +20,4 @@ vendor/
 go.work
 
 *.ort
+*.syso
