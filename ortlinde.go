@@ -24,6 +24,13 @@ const (
 )
 
 func main() {
+	launchDirect := true
+	if len(os.Args) > 1 {
+		if os.Args[1] == "launcher" {
+			launchDirect = false
+		}
+	}
+
 	fmt.Println(`
 
      [[ Ortlinde: Simple SDVX コナステ Launcher ]]
@@ -64,9 +71,8 @@ func main() {
 	fmt.Println("[SDVX] Finding game folder...")
 	gameFolder := determineOrAskSdvxFolder()
 
-	// TODO: Allow customising direct or not
 	fmt.Println("[SDVX] Launching game...")
-	launchSdvx(gameFolder, sdvxToken, true)
+	launchSdvx(gameFolder, sdvxToken, launchDirect)
 
 	fmt.Println("\n\n     << Thanks for using Ortlinde! See you next play :) >>\n")
 }
