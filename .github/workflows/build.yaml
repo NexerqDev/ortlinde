@@ -14,7 +14,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v4
       - name: Install system build dependencies
-        run: sudo apt-get install -y binutils-mingw-w64-x86-64
+        run: sudo apt-get install -y binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64
       - name: Generate Windows resource COFF
         run: ./buildresource.sh
       - name: Install Go dependencies
