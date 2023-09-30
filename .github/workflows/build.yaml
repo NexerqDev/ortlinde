@@ -1,0 +1,31 @@
+name: ortlinde Go build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v4
+      - name: Install system build dependencies
+        run: sudo apt-get install -y binutils-mingw-w64-x86-64
+      - name: Generate Windows resource COFF
+        run: ./buildresource.sh
+      - name: Install Go dependencies
+        run: go get .
+      - name: Build for Windows x64
+        run: go build -v -o ortlinde.exe
+        env:
+          GOOS: windows
+          GOARCH: amd64
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ortlinde.exe
+          path: ortlinde.exe
